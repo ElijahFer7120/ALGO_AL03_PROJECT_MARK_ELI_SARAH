@@ -29,7 +29,9 @@ def build_registry(records):
 
 
 def scan_lookup(records, ticket_id):
+    inspected = 0 
     for record in records:
+        inspected += 1
         if record["id"] == ticket_id:
             return record.copy()
     return None
