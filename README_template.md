@@ -1,9 +1,9 @@
 # AL03: Ticket Registry, Queue, and Undo
 
-Name: [your name]
-Partners: [name(s)]
+Name: [John Elijah B. Ferrer]
+Partners: [Mark Beckens, Sarah Imhoff]
 Shared repository: [URL]
-My contribution: [brief note]
+My contribution: [coding in stuff for monday]
 
 ## Run
 
