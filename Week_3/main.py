@@ -123,9 +123,9 @@ def main():
         build_registry(
             [
                 {"id": "T999", "title": "First", "category": "account",
-                 "priority": "low", "status": "open"},
+                "priority": "low", "status": "open"},
                 {"id": "T999", "title": "Second", "category": "account",
-                 "priority": "high", "status": "open"},
+                "priority": "high", "status": "open"},
             ]
         )
     except ValueError as error:
