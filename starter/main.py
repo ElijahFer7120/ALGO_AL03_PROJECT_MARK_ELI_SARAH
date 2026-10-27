@@ -84,7 +84,7 @@ def filter_by_category(registry, category):
 # ======================================================================
 
 def enqueue_ticket(state, ticket_id):
-    ticket = registry.get(ticket_id)
+    ticket = state["registry"].get(ticket_id)
     if ticket is None or ticket["status"] != "open" or ticket_id in state["pending"]:
         return False
     state["pending"].append(ticket_id)
@@ -99,11 +99,11 @@ def enqueue_ticket(state, ticket_id):
 def process_next(state):
     if not state["pending"]:
         return None
-    ticket_id = state["pending"].pop(0)
-    ticket = registry.get(ticket_id)
+    ticket_id = state["pending"].popleft()
+    ticket = state["registry"].get(ticket_id)
     if ticket is None:
         return None
-    state["history"].append({"ticket_id": ticket_id, "previous_status": ticket["status"]})
+    state["undo"].append({"ticket_id": ticket_id, "previous_status": ticket["status"]})
     ticket["status"] = "completed"
     return ticket_id
     """Complete the oldest waiting ticket and remember its previous status."""
@@ -115,15 +115,15 @@ def process_next(state):
 
 
 def undo_process(state):
-    if not state["history"]:
+    if not state["undo"]:
         return None
-    last = state["history"].pop()
+    last = state["undo"].pop()
     ticket_id = last["ticket_id"]
-    ticket = registry.get(ticket_id)
+    ticket = state["registry"].get(ticket_id)
     if ticket is None:
         return None
     ticket["status"] = last["previous_status"]
-    state["pending"].insert(0, ticket_id)
+    state["pending"].appendleft(ticket_id)
     return ticket_id
     """Restore the latest processed ticket and return it to the queue front."""
     # If history is empty, return None without changing state.
