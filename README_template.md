@@ -30,8 +30,8 @@ do not implement every operation twice or maintain two live stores.
 
 Append brief observations, debugging challenges, changes, and learnings.
 
-- Processing and undo: [one observation from two processed tickets and one undo]
-- Contract or snapshot learning: [one brief observation in your own words]
+- Processing and undo: 
+- Contract or snapshot learning: 
 
 These can be short bullets, not an essay or separate evidence document.
 
