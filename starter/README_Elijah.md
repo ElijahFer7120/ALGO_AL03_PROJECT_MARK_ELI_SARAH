@@ -37,8 +37,7 @@ These can be short bullets, not an essay or separate evidence document.
 
 ## Assistance
 
-[Support used, or none. For AI, identify the tool/task and what you checked,
-changed, or rejected. Identify the supplied data and display modules as supplied.]
+got help from github copilot with assisting me with coding 
 
 ## Instructor Comments
 

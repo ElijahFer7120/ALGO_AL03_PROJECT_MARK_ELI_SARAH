@@ -1,6 +1,6 @@
 """Presentation helpers only; students implement the AL03 ticket operations."""
 
-from console_style import print_color
+from consoles_style import print_color
 
 
 def display_tickets(title, records):
